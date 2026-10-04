@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <!-- Background -->
+  <rect width="32" height="32" rx="6" fill="#0a0a0a"/>
+  <!-- Green "AC" monogram -->
+  <text x="50%" y="56%" dominant-baseline="middle" text-anchor="middle"
+    font-family="monospace" font-size="13" font-weight="600" fill="#22d472">AC</text>
+</svg>

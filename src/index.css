@@ -1,0 +1,152 @@
+/* ============================================================
+   Global Styles — Developer Portfolio
+   Design tokens, resets, and base typography
+   ============================================================ */
+
+/* ── Tailwind directives ─────────────────────────────────── */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── CSS Custom Properties (Design Tokens) ───────────────── */
+:root {
+  /* Backgrounds */
+  --background: 0 0% 4%;          /* #0a0a0a near-black */
+  --surface: 0 0% 7%;             /* #121212 surface */
+  --surface-raised: 0 0% 10%;     /* #1a1a1a raised */
+
+  /* Borders */
+  --border: 0 0% 13%;             /* #212121 border */
+
+  /* Text */
+  --foreground: 0 0% 95%;         /* #f2f2f2 off-white */
+  --muted: 0 0% 42%;              /* #6b6b6b muted */
+
+  /* Brand Green */
+  --primary: 142 72% 50%;         /* #22d472 code green */
+  --primary-dark: 142 76% 38%;    /* #18a355 hover */
+  --primary-glow: 142 72% 50% / 0.12;
+
+  /* Typography */
+  --mono: 'JetBrains Mono', monospace;
+}
+
+/* ── Base Reset & Defaults ───────────────────────────────── */
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    /* Prevent horizontal overflow on mobile */
+    overflow-x: hidden;
+  }
+
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: 'Sora', sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  /* Focus ring — accessible keyboard navigation */
+  :focus-visible {
+    outline: 2px solid hsl(var(--primary));
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  /* Selection color */
+  ::selection {
+    background-color: hsl(var(--primary) / 0.2);
+    color: hsl(var(--foreground));
+  }
+
+  /* Smooth scrolling anchors */
+  [id] {
+    scroll-margin-top: 80px;
+  }
+}
+
+/* ── Utility Layer ───────────────────────────────────────── */
+@layer utilities {
+  /* Typing cursor — blinking green pipe */
+  .cursor-blink {
+    display: inline-block;
+    color: hsl(var(--primary));
+    animation: blink 1s step-end infinite;
+  }
+
+  /* Monospace label — used throughout for technical labels */
+  .label-mono {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: hsl(var(--primary));
+  }
+
+  /* Glow card hover effect */
+  .glow-card {
+    transition: border-color 0.18s ease, box-shadow 0.18s ease;
+  }
+  .glow-card:hover {
+    border-color: hsl(var(--primary)) !important;
+    box-shadow: 0 0 32px hsl(var(--primary-glow));
+  }
+
+  /* Green radial glow backdrop (used in Contact section) */
+  .bg-glow-radial {
+    background: radial-gradient(
+      ellipse 60% 40% at 50% 50%,
+      hsl(142 72% 50% / 0.06) 0%,
+      transparent 70%
+    );
+  }
+}
+
+/* ── Keyframe Animations ─────────────────────────────────── */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-8px); }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Scrollbar Styling ───────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--border));
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary) / 0.4);
+}
