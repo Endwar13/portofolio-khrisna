@@ -42,7 +42,7 @@ export function Footer() {
               Khrisna Tirta Endira
             </span>
             <span className="font-mono text-[10px] text-muted uppercase tracking-wider">
-              Full-Stack Developer
+              Front-End Developer
             </span>
           </div>
 

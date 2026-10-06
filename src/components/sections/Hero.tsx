@@ -143,7 +143,7 @@ function TerminalCodeBlock() {
 
         {/* Syntax-highlighted code snippet */}
         <pre
-          className="font-mono text-[13px] leading-relaxed whitespace-pre"
+          className="font-mono text-[13px] leading-relaxed whitespace-pre overflow-x-auto "
           aria-label="Code snippet introducing Alex Chen"
         >
           {/* Comment line */}
